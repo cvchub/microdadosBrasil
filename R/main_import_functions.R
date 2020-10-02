@@ -181,7 +181,7 @@ read_data <- function(dataset,ft,i, metadata = NULL,var_translator=NULL,root_pat
 
     }else{
 
-      d <- lapply(files, function(x,...) data.table::fread(x,...) %>% .[, source_file := x], sep = delim, na.strings = c("NA",missing_symbol), nrows = nrows) %>% rbindlist(use.names = T)
+      d <- lapply(files, function(x,...) data.table::fread(x,...) %>% .[, source_file := x], sep = delim, na.strings = c("NA",missing_symbol), nrows = nrows) %>% rbindlist(use.names = T,fill=TRUE)
 
     }
 
